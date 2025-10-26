@@ -1,3 +1,4 @@
+PORT=80
 PASSWORD=$(openssl rand -hex 5)
 echo "SEMAPHORE_ADMIN_PASSWORD=$PASSWORD" >> .env
 TOKEN=$(openssl rand -hex 32)
