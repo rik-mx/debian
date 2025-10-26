@@ -12,17 +12,17 @@ services:
       SEMAPHORE_ADMIN_EMAIL: admin@localhost
       SEMAPHORE_RUNNER_REGISTRATION_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
     volumes:
-      - ./data:/etc/semaphore
+      - ./semaphore_data:/var/lib/semaphore
+      - ./semaphore_config:/etc/semaphore
 
   semaphore-runner:
     image: semaphoreui/runner:v2.16.18
     restart: unless-stopped
     environment:
-      SEMAPHORE_RUNNER_PRIVATE_KEY_FILE: /var/lib/semaphore/runner.key
       SEMAPHORE_WEB_ROOT: http://semaphore:3000
-      SEMAPHORE_RUNNER_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
+      SEMAPHORE_RUNNER_REGISTRATION_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
     volumes:
-      - ./runner.key:/var/lib/semaphore/runner.key:ro
-      - ./runner-data:/var/lib/semaphore
+      - ./runner_data:/var/lib/semaphore
+      - ./runner_config:/etc/semaphore
     depends_on:
       - semaphore
