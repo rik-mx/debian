@@ -11,6 +11,7 @@ services:
       SEMAPHORE_ADMIN_NAME: Admin
       SEMAPHORE_ADMIN_EMAIL: admin@localhost
       SEMAPHORE_RUNNER_REGISTRATION_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
+      SEMAPHORE_USE_REMOTE_RUNNER: "true"
     volumes:
       - ./semaphore_data:/var/lib/semaphore
       - ./semaphore_config:/etc/semaphore
