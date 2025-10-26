@@ -20,6 +20,7 @@ services:
     image: semaphoreui/runner:v2.16.18
     restart: unless-stopped
     environment:
+      SEMAPHORE_RUNNER_PRIVATE_KEY_FILE: /var/lib/semaphore/runner.key
       SEMAPHORE_WEB_ROOT: http://semaphore:3000
       SEMAPHORE_RUNNER_REGISTRATION_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
       SEMAPHORE_RUNNER_TOKEN_FILE: /etc/semaphore/runner.token
