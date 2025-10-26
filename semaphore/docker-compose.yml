@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     environment:
       SEMAPHORE_WEB_ROOT: http://semaphore:3000
-      SEMAPHORE_RUNNER_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
+      SEMAPHORE_RUNNER_REGISTRATION_TOKEN: ${SEMAPHORE_RUNNER_REGISTRATION_TOKEN}
     volumes:
       - ./runner_data:/var/lib/semaphore
       - ./runner_config:/etc/semaphore
